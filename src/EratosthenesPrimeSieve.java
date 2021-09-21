@@ -47,4 +47,42 @@ public class EratosthenesPrimeSieve implements PrimeSieve{
             }
         }
     }
+
+    public void printStraightNumbers(int o){
+        boolean prime[] = new boolean[o+1];
+
+        for(int i=0;i<=o;++i) {
+            prime[i] = true;
+        }
+        for(int i = 2;i*i <=o;++i)
+        {
+            if(prime[i] == true)
+            {
+                for(int j = i*i; j <= o;j+=i) {
+                    prime[j] = false;
+                }
+            }
+        }
+        boolean running = true;
+        for(int i = 4;i <= o;i=i+2){
+            for(int j = 2;j < prime.length;++j){
+                if(prime[j] == true) {
+                    for(int b = 2;b < prime.length;++b){
+                        if(prime[b] == true) {
+                            if((j+b) == i){
+                                System.out.println((j+b)+" summe: "+(j+b)+" = "+j+" + "+b);
+                                running = false;
+                                break;
+                            }
+                        }
+                    }
+
+                }
+                if(!running){
+                    running = true;
+                    break;
+                }
+            }
+        }
+    }
 }
