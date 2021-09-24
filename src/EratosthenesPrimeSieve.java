@@ -13,9 +13,12 @@ public class EratosthenesPrimeSieve implements PrimeSieve{
         for(int i=0;i<=p;++i) {
             prime[i] = true;
         }
+        prime[0] = false;
+        prime[1] = false;
+
         for(int i = 2;i*i <=p;++i)
         {
-            if(prime[i] == true)
+            if(prime[i])
             {
                 for(int j = i*i; j <= p;j+=i) {
                     prime[j] = false;
@@ -32,9 +35,8 @@ public class EratosthenesPrimeSieve implements PrimeSieve{
         for(int i=0;i<=runTill;++i) {
             prime[i] = true;
         }
-        for(int i = 2;i*i <=runTill;++i)
-        {
-            if(prime[i] == true)
+        for(int i = 2;i*i <=runTill;++i){
+            if(prime[i])
             {
                 for(int j = i*i; j <= runTill;j+=i) {
                     prime[j] = false;
@@ -42,7 +44,7 @@ public class EratosthenesPrimeSieve implements PrimeSieve{
             }
         }
         for(int i = 2;i < prime.length;++i){
-            if(prime[i] == true){
+            if(prime[i]){
                 System.out.println(i);
             }
         }
@@ -56,7 +58,7 @@ public class EratosthenesPrimeSieve implements PrimeSieve{
         }
         for(int i = 2;i*i <=o;++i)
         {
-            if(prime[i] == true)
+            if(prime[i])
             {
                 for(int j = i*i; j <= o;j+=i) {
                     prime[j] = false;
@@ -66,9 +68,9 @@ public class EratosthenesPrimeSieve implements PrimeSieve{
         boolean running = true;
         for(int i = 4;i <= o;i=i+2){
             for(int j = 2;j < prime.length;++j){
-                if(prime[j] == true) {
+                if(prime[j]) {
                     for(int b = 2;b < prime.length;++b){
-                        if(prime[b] == true) {
+                        if(prime[b]) {
                             if((j+b) == i){
                                 System.out.println((j+b)+" summe: "+(j+b)+" = "+j+" + "+b);
                                 running = false;
@@ -76,7 +78,6 @@ public class EratosthenesPrimeSieve implements PrimeSieve{
                             }
                         }
                     }
-
                 }
                 if(!running){
                     running = true;
