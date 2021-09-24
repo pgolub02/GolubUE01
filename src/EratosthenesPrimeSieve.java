@@ -71,8 +71,8 @@ public class EratosthenesPrimeSieve implements PrimeSieve{
                 if(prime[j]) {
                     for(int b = 2;b < prime.length;++b){
                         if(prime[b]) {
-                            if(j+b == i){
-                                System.out.println(j+b+" summe: "+(j+b)+" = "+j+" + "+b);
+                            if((j+b) == i){
+                                System.out.println((j+b)+" summe: "+(j+b)+" = "+j+" + "+b);
                                 running = false;
                                 break;
                             }
